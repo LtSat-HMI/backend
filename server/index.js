@@ -7,9 +7,9 @@ const router = require('./routes');
 require("dotenv").config();
 
 const app = express();
-const Port = process.env.PORT || 8080;
+const Port = process.env.PORT || 3030;
 
-const Uri = 'mongodb+srv://wendel:mongosenha123@teste-wendel.jdmokif.mongodb.net/?retryWrites=true&w=majority';
+const Uri = process.env.URL_DB;
 const store = new MongoDBStore({
   uri: Uri,
   collection: "sessions",
