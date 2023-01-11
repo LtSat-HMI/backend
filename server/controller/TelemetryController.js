@@ -1,4 +1,4 @@
-const Post = require("../model/Telemetry");
+const Post = require("../database/model/Telemetry");
 
 module.exports = {
   async fetchPost(req, res) {

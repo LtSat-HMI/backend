@@ -1,6 +1,7 @@
-let mongoose = require('mongoose');
+const database = require('../database');
 
-const TelemetrySchema = new mongoose.Schema({
+const databaseTelemetry = database.connection.useDb('telemetry');
+const TelemetrySchema = new database.Schema({
   count: {
     $type:Number, 
     required: true,
@@ -67,9 +68,21 @@ const TelemetrySchema = new mongoose.Schema({
     required: false,
   }
 }, {
-    typeKey: '$type',
     timestamps: true
   }
 );
 
-module.exports = mongoose.model('posts', TelemetrySchema);
+TelemetrySchema.set('toJSON', {
+  getters: true,
+});
+
+TelemetrySchema.set('toObject', {
+  getters: true,
+});
+
+const Telemetry = databaseTelemetry.model(
+  'statistical_telemetry',
+  TelemetrySchema,
+);
+
+module.exports = Telemetry;

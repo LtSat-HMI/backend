@@ -9,10 +9,10 @@ require("dotenv").config();
 const app = express();
 const Port = process.env.PORT || 3030;
 
-const Uri = process.env.URL_DB;
+const Uri = `mongodb+srv://ltsat:${process.env.DB_PASSWORD}@cluster0.jggbcwf.mongodb.net/?retryWrites=true&w=majority`;
 const store = new MongoDBStore({
   uri: Uri,
-  collection: "sessions",
+  collection: "telemetry",
 });
 
 const connectDB = async () => {
