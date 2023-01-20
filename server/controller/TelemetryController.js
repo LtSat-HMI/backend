@@ -1,13 +1,13 @@
-const Post = require("../database/model/Telemetry");
+const Telemetry = require("../database/model/Telemetry");
 
 module.exports = {
-  async fetchPost(req, res) {
+  async fetchTelemetry(req, res) {
     const data = { count: req.body.count };
-    const posts = await Post.find(data);
-    return res.send(posts);
+    const telemetry = await Telemetry.find(data);
+    return res.send(telemetry);
   },
 
-  async insertPosts(req, res) {
+  async insertTelemetry(req, res) {
     const {
       count,
       Temperatura,
@@ -27,12 +27,12 @@ module.exports = {
       MagnetometroY,
     } = req.body;
     try {
-      if (await Post.findOne({ count })) {
+      if (await Telemetry.findOne({ count })) {
         return res.status(409).send({ error: "Pacote já existe" });
       }
 
-      const posts = await Post.create(req.body);
-      return res.send({ posts });
+      const telemetry = await Telemetry.create(req.body);
+      return res.send({ telemetry });
     } catch (err) {
       return res.status(400).send({ error: "Falha no cadastro de Telemetria" });
     }

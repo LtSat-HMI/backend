@@ -1,20 +1,18 @@
 {
-  "name": "p3-backend",
+  "name": "backend",
   "version": "1.0.0",
   "main": "index.js",
   "repository": "",
-  "author": "Wendel M. L. Ferreira <wendelf@alunos.utfpr.edu.br>",
+  "author": "Developer Squad in LtSat",
   "license": "MIT",
   "dependencies": {
-    "bcryptjs": "^2.4.3",
     "connect-mongodb-session": "^2.4.1",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.17.1",
     "express-session": "^1.17.1",
     "mongoose": "^5.12.6",
-    "path": "^0.12.7",
-    "uuid": "^9.0.0"
+    "path": "^0.12.7"
   },
   "scripts": {
     "dev": "nodemon server/index.js",
