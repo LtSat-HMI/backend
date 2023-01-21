@@ -12,7 +12,8 @@
     "express": "^4.17.1",
     "express-session": "^1.17.1",
     "mongoose": "^5.12.6",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "serialport": "^10.5.0"
   },
   "scripts": {
     "dev": "nodemon server/index.js",

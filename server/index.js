@@ -4,6 +4,7 @@ const session = require("express-session");
 const MongoDBStore = require("connect-mongodb-session")(session);
 const cors = require('cors');
 const router = require('./routes');
+const serial = require('./serial/index')
 require("dotenv").config();
 
 const app = express();
@@ -28,6 +29,13 @@ const connectDB = async () => {
 }
 
 connectDB();
+
+const conectSerial = () => {
+  serial.Serial();
+  console.log('Comunicação serial estabelecida');
+}
+
+conectSerial();
 
 app.use(express.json());
 app.use(cors());

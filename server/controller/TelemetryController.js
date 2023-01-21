@@ -7,7 +7,7 @@ module.exports = {
     return res.send(telemetry);
   },
 
-  async insertTelemetry(req, res) {
+  async insertTelemetry(data) {
     const {
       count,
       Temperatura,
@@ -25,14 +25,9 @@ module.exports = {
       MagnetometroP,
       MagnetometroR,
       MagnetometroY,
-    } = req.body;
+    } = data;
     try {
-      if (await Telemetry.findOne({ count })) {
-        return res.status(409).send({ error: "Pacote já existe" });
-      }
-
-      const telemetry = await Telemetry.create(req.body);
-      return res.send({ telemetry });
+      const telemetry = await Telemetry.create(data);
     } catch (err) {
       return res.status(400).send({ error: "Falha no cadastro de Telemetria" });
     }
