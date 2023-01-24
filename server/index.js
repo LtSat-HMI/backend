@@ -30,12 +30,12 @@ const connectDB = async () => {
 
 connectDB();
 
-const conectSerial = () => {
-  serial.Serial();
-  console.log('Comunicação serial estabelecida');
-}
+// const conectSerial = () => {
+//   serial.Serial();
+//   console.log('Comunicação serial estabelecida');
+// }
 
-conectSerial();
+// conectSerial();
 
 app.use(express.json());
 app.use(cors());

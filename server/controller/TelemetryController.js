@@ -2,8 +2,7 @@ const Telemetry = require("../database/model/Telemetry");
 
 module.exports = {
   async fetchTelemetry(req, res) {
-    const data = { count: req.body.count };
-    const telemetry = await Telemetry.find(data);
+    const telemetry = await Telemetry.find();
     return res.send(telemetry);
   },
 

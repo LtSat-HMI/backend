@@ -23,4 +23,9 @@ module.exports = {
     } = data;
     const telemetry = await RealTelemetry.create(data);
   },
+
+  async fetchRealTelemetry(req, res) {
+    const telemetry = await RealTelemetry.find();
+    return res.send(telemetry);
+  },
 };
